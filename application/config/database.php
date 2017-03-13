@@ -64,10 +64,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'root',
-	'database' => 'codeigniter-forum',
+	'hostname' => 'danny-ppsp.cz50ssaj4gve.ap-southeast-1.rds.amazonaws.com',
+	'username' => 'dbuser',
+	'password' => 'Exlogin01',
+	'database' => 'ppsp',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
