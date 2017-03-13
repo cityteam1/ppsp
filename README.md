@@ -33,4 +33,4 @@ Go to http://example.com/register and create a user
 ## Usage
 It is just a starter for user login logout register functionalities.
 
-
+Danny
