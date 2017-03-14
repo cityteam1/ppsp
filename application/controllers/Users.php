@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * 
  * @extends CI_Controller
  */
-class User extends CI_Controller {
+class Users extends CI_Controller {
 
 	/**
 	 * __construct function.
@@ -26,7 +26,6 @@ class User extends CI_Controller {
 	
 	public function index() {
 		
-
 		
 	}
 	
