@@ -1,5 +1,4 @@
 #This is PPSP Project.
-
-v1 login-logout-register
-A user login, logout, register page
+1. v1 login-logout-register
+2. A user login, logout, register page
 
