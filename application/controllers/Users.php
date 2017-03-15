@@ -23,12 +23,6 @@ class Users extends CI_Controller {
 		
 	}
 	
-	
-	public function index() {
-		
-		
-	}
-	
 	/**
 	 * register function.
 	 * 
@@ -135,6 +129,7 @@ class Users extends CI_Controller {
 				$this->load->view('header');
 				$this->load->view('user/login/login_success', $data);
 				$this->load->view('footer');
+				redirect(base_url('index'));
 				
 			} else {
 				
@@ -174,12 +169,13 @@ class Users extends CI_Controller {
 			$this->load->view('header');
 			$this->load->view('user/logout/logout_success', $data);
 			$this->load->view('footer');
+			redirect(base_url('/'));
 			
 		} else {
 			
 			// there user was not logged in, we cannot logged him out,
 			// redirect him to site root
-			redirect('/');
+			redirect(base_url('/'));
 			
 		}
 		
