@@ -5,14 +5,15 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Site title</title>
+	<title>PPSP Project</title>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="">
 
 	<!-- css -->
-	<link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
-	<link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -20,9 +21,8 @@
 	<![endif]-->
 </head>
 <body>
-
 	<header id="site-header">
-		<nav class="navbar navbar-default" role="navigation">
+		<nav class="navbar navbar-inverse" role="navigation">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -31,15 +31,29 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="<?= base_url() ?>">Site title</a>
+					<a class="navbar-brand" href="<?= base_url() ?>">PPSP Project</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      				<ul class="nav navbar-nav">
+        			<li class="active"><a href="#">Home</a></li>
+        			<li><a href="#">Products</a></li>
+        			<li><a href="#">Deals</a></li>
+        			<li><a href="#">Stores</a></li>
+        			<li><a href="#">Contact</a></li>
+      				</ul>
+      				<form class="navbar-form navbar-left">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+    </form>
 					<ul class="nav navbar-nav navbar-right">
 						<?php if (isset($_SESSION['username']) && $_SESSION['logged_in'] === true) : ?>
-							<li><a href="<?= base_url('logout') ?>">Logout</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
+							<li><a href="<?= base_url('logout') ?>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 						<?php else : ?>
-							<li><a href="<?= base_url('register') ?>">Register</a></li>
-							<li><a href="<?= base_url('login') ?>">Login</a></li>
+							<li><a href="<?= base_url('register') ?>"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+							<li><a href="<?= base_url('login') ?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 						<?php endif; ?>
 					</ul>
 				</div><!-- .navbar-collapse -->
