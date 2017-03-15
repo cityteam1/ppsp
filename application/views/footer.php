@@ -1,7 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	</main><!-- #site-content -->
 
-	<footer id="site-footer" role="contentinfo">
+	<footer class="container-fluid text-center" role="contentinfo">
+  		<p>Footer Text</p>
 	</footer><!-- #site-footer -->
 
 	<!-- js -->
