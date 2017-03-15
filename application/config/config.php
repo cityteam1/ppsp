@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | explicitly and never rely on auto-guessing, especially in production
 | environments.
 */
-$config['base_url'] = 'https://ppsp-danny053.c9users.io';
+$config['base_url'] = '';
 
 
 /*
