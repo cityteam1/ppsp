@@ -18,7 +18,7 @@
 		<?php endif; ?>
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1>Login</h1>
+				<h1>Admin login page</h1>
 			</div>
 			
 			<?= form_open() ?>

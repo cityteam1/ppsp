@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1>Thank you for registering new account!</h1>
+				<h1>You are not admin</h1>
 			</div>
 			<p>Please go to user<a href="<?= base_url('login') ?>"> Login</a> page.</p>
 		</div>

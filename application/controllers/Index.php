@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-require_once "Users.php";
-class Index extends Users{
+// require_once "Users.php";
+class Index extends CI_Controller{
     	public function __construct() {
 		
 		parent::__construct();

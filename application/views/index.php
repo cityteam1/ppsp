@@ -24,8 +24,6 @@
         People are looking at your profile. Find out who.
       </div>
       <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
     </div>
     <div class="col-sm-7">
     
@@ -36,7 +34,7 @@
               <p contenteditable="true">Status: Feeling Blue</p>
               <button type="button" class="btn btn-default btn-sm">
                 <span class="glyphicon glyphicon-thumbs-up"></span> Like
-              </button>     
+              </button>
             </div>
           </div>
         </div>
@@ -93,7 +91,11 @@
             <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
           </div>
         </div>
-      </div>     
+      </div>
+      <ul class="pager">
+        <li class="previous"><a href="#">Previous</a></li>
+        <li class="next"><a href="#">Next</a></li>
+      </ul>
     </div>
     <div class="col-sm-2 well">
       <div class="thumbnail">
@@ -103,9 +105,6 @@
         <p>Fri. 27 November 2015</p>
         <button class="btn btn-primary">Info</button>
       </div>      
-      <div class="well">
-        <p>ADS</p>
-      </div>
       <div class="well">
         <p>ADS</p>
       </div>

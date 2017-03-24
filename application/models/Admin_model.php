@@ -1,13 +1,6 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-/**
- * User_model class.
- * 
- * @extends CI_Model
- */
-class User_model extends CI_Model {
-
+// require_once "User_model.php";
+class Admin_model extends CI_Model {
 	/**
 	 * __construct function.
 	 * 
@@ -21,36 +14,40 @@ class User_model extends CI_Model {
 		
 	}
 	
-	/**
-	 * create_user function.
+		/**
+	 * login function.
 	 * 
 	 * @access public
-	 * @param mixed $username
-	 * @param mixed $email
-	 * @param mixed $password
-	 * @return bool true on success, false on failure
+	 * @return void
 	 */
-	public function create_user($username, $email, $password) {
+	
+	public function get_admin($is_admin) {
 		
-		$data = array(
-			'username'   => $username,
-			'email'      => $email,
-			'password'   => $this->hash_password($password),
-			'created_at' => date('Y-m-j H:i:s'),
-		);
-		
-		return $this->db->insert('users', $data);
+		$this->db->select('is_admin');
+		$this->db->from('users');
+		$this->db->where('username', $username);
+
+		return $this->db->get()->row('is_admin');
 		
 	}
 	
-	/**
-	 * resolve_user_login function.
-	 * 
-	 * @access public
-	 * @param mixed $username
-	 * @param mixed $password
-	 * @return bool true on success, false on failure
-	 */
+	public function list_user($username){
+		
+	    $this->db->select('username', $username);
+		$this->db->from('users');
+
+		return $this->db->get()->row('username');
+	}
+	
+	public function edit_user($username) {
+		
+		
+	}
+	
+	public function delete_user($username){
+	    
+	}
+	
 	public function resolve_user_login($username, $password) {
 		
 		$this->db->select('password');
@@ -59,7 +56,6 @@ class User_model extends CI_Model {
 		$hash = $this->db->get()->row('password');
 		
 		return $this->verify_password_hash($password, $hash);
-		return $this->$hash;
 		
 	}
 	
@@ -68,7 +64,7 @@ class User_model extends CI_Model {
 			'updated_at' => date('Y-m-j H:i:s'),
 		);
 		
-		return $this->db->update('updated_at', $data);
+		return $this->db->insert('updated_at', $data);
 	}
 	
 	/**
@@ -130,5 +126,5 @@ class User_model extends CI_Model {
 		
 	}
 	
-	
 }
+?>
