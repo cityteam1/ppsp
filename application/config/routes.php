@@ -54,6 +54,12 @@ $route['default_controller'] = 'Index/index';
 $route['register'] = 'users/register';
 $route['login'] = 'users/login';
 $route['logout'] = 'users/logout';
-$route['test'] = 'test/index';
+$route['profile'] = 'users/profile';
+$route['admin/login'] = 'admin/login';
+$route['admin'] = 'admin/board';
 $route['404_override'] = 'errors/page_missing';
+$route['Actitives'] = 'Actitives/index';
 $route['translate_uri_dashes'] = FALSE;
+
+# Actitives
+
