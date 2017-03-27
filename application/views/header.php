@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>PPSP Project</title>
+	<title>Activities Platform System</title>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="">
@@ -14,14 +14,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   	
-	<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
-	  <style>
-	  
-
+	<style>
     /* Set black background color, white text and some padding */
     footer {
 		background-color: #555;
@@ -44,7 +39,7 @@
     /*}*/
   </style>
 </head>
-<body>
+<body style="background-color:#F8F8FF;">
 	<header id="site-header">
 		<nav class="navbar navbar-inverse" role="navigation">
 			<div class="container-fluid">
@@ -61,13 +56,10 @@
       				<ul class="nav navbar-nav">
 	        			<li class="active"><a href="<?= base_url()?>">Home</a></li>
 	        			<li><a href="<?= base_url('Actitives') ?>">Actitives</a></li>
-	        			<li><a href="#">Deals</a></li>
-	        			<li><a href="#">Stores</a></li>
-	        			<li><a href="#">Contact</a></li>
       				</ul>
-	      			<form class="navbar-form navbar-left">
+	      			<form class="navbar-form navbar-left" method="POST" action="<?php echo base_url("Actitives/Search")?>">
 	      				<div class="form-group">
-	        				<input type="text" class="form-control" placeholder="Search">
+	        				<input type="text" class="form-control" name="keyword" placeholder="Search">
 	      				</div>
 	      				<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 	    			</form>
@@ -78,13 +70,6 @@
 	                    <ul class="dropdown-menu">
 	                        <li>
 	                            <a href="profile"><span class="glyphicon glyphicon-user" aria-hidden="true"> Profile</span></a>
-	                        </li>
-	                        <li>
-	                        	<a href="profile"><span class="glyphicon glyphicon-user" aria-hidden="true"> Is admin = <?= $_SESSION['is_admin']?></span></a>
-	                            
-	                        </li>
-	                        <li>
-	                            <a href="#"><i class="fa fa-fw fa-gear"></i> Is comfirmed = <?= $data;?> </a>
 	                        </li>
 	                        <li class="divider"></li><!-- line -->
 	                        <li>
@@ -102,7 +87,7 @@
 		</nav><!-- .navbar -->
 	</header><!-- #site-header -->
 
-	<main id="site-content" role="main">
+	<main id="site-content" role="main" style="margin-bottom:50px;">
 		<div class="container">
 
 		

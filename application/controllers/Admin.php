@@ -8,23 +8,25 @@ class Admin extends CI_Controller{
 		parent::__construct();
 		$this->load->library(array('session'));
 		$this->load->helper(array('url'));
+		$this->load->helper('form');
 		$this->load->model('admin_model');
 		
 	}
 	
 	public function board() {
 		
-		isset($_SESSION['is_admin']);
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		
+		$data["user"] = $this->list_user();
 		
 		if ($_SESSION['is_admin'] === 1) {
 
 		$this->load->view('header');
-		$this->load->view('admin/board');
+		$this->load->view('admin/board', $data);
 		$this->load->view('footer');
 
 		} else {
-			
-			
 			
 			$data = "You have no permission";
 			// remove session datas
@@ -71,8 +73,6 @@ class Admin extends CI_Controller{
 					$user_id = $this->admin_model->get_user_id_from_username($username);
 					$user    = $this->admin_model->get_user($user_id);
 					
-	
-					
 					// set session user datas
 					$_SESSION['user_id']      = (int)$user->id;
 					$_SESSION['username']     = (string)$user->username;
@@ -80,34 +80,7 @@ class Admin extends CI_Controller{
 					$_SESSION['is_confirmed'] = (int)$user->is_confirmed;
 					$_SESSION['is_admin']     = (int)$user->is_admin;
 					
-					// user login ok
-					// $this->load->view('header');
-					// $this->load->view('user/login/login_success', $data);
-					// $this->load->view('footer');
-					
-					
-						// if ($_SESSION['is_admin'] === 1) {
-				
-						// $this->load->view('header');
-						// $this->load->view('admin/admin');
-						// $this->load->view('footer');
-				
-						// } else {
-							
-						// 	$data = "You are not admin";
-						// 	// remove session datas
-						// 	foreach ($_SESSION as $key => $value) {
-						// 		unset($_SESSION[$key]);
-						// 	}
-							
-						// 	// user logout ok
-						// 	$this->load->view('header');
-						// 	$this->load->view('errors/login_admin_fail');
-						// 	$this->load->view('footer');
-						// 	// redirect(base_url('/'));
-							
-						// }
-						redirect(base_url('admin'));
+					redirect(base_url('admin'));
 					
 					
 					
@@ -128,6 +101,57 @@ class Admin extends CI_Controller{
 
 		
 	}
+	
+	public function list_user(){
+		
+		$user = $this->admin_model->list_user();
+		return $user;
+	}
+
+	public function edit_user(){
+		
+		
+		$data = new stdClass();
+		
+		$id 	  = $this->input->post('id');
+		$username = $this->input->post('username');
+		$email    = $this->input->post('email');
+		
+		$data = array(
+				'USERNAME'=> $username,
+				'EMAIL'=> $email,
+		);
+		
+		$this->admin_model->edit_user($id, $data);
+		
+		$data["user"] = $this->list_user();
+		$this->load->view('header');
+		$this->load->view('admin/board', $data);
+		$this->load->view('footer');
+	}
+	
+	public function delete_user(){
+		
+		$this->load->helper('form');
+		
+		$data = new stdClass();
+		
+		$id = $this->input->post('id');
+		
+		$data = array(
+				'ID'=> $id,
+		);
+		
+		$this->admin_model->delete_user($id, $data);
+		
+		$data["user"] = $this->list_user();
+		$this->load->view('header');
+		$this->load->view('admin/board', $data);
+		$this->load->view('footer');
+		
+	}
+	
+	
 	
 
 }

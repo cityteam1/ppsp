@@ -31,20 +31,23 @@ class Admin_model extends CI_Model {
 		
 	}
 	
-	public function list_user($username){
+	public function list_user(){
 		
-	    $this->db->select('username', $username);
+	    $this->db->select('*');
 		$this->db->from('users');
-
-		return $this->db->get()->row('username');
+		return $this->db->get()->result();
 	}
 	
-	public function edit_user($username) {
-		
+	public function edit_user($id, $data) {
+		 $this->db->where('id', $id);
+		return $this->db->update('users', $data);
 		
 	}
 	
-	public function delete_user($username){
+	public function delete_user($id, $data){
+		
+		$this->db->where('id', $id);
+		return $this->db->delete('users', $data);
 	    
 	}
 	
@@ -64,7 +67,7 @@ class Admin_model extends CI_Model {
 			'updated_at' => date('Y-m-j H:i:s'),
 		);
 		
-		return $this->db->insert('updated_at', $data);
+		return $this->db->update($data);
 	}
 	
 	/**

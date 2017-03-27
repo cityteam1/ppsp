@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	</main><!-- #site-content -->
 
-	<footer class="footer">
+	<footer class="footer" style='position:fixed; bottom:0px;'>
   		<p>© 2017 City Scope PPSP Project</p>
 	</footer><!-- #site-footer -->
 

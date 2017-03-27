@@ -1,113 +1,73 @@
-<div class="container text-center">    
+<? php require_once "actitives.php";?>
+<!--<div class="jumbotron" style="background-color:	#ADD8E6;" >-->
+<div class="jumbotron" style="background-image: url('http://www.pgl.co.uk/Files/Files/Adventure%20Holidays/Holidays/Multi%20Activity/AH-MH-Multi-Activity-Boys-o.jpg'); color:white;" >
+  <h1>Activities Platform System</h1>
+  <p>This is Activities Platform.</p>
+  <p><a class="btn btn-primary btn-lg" href="/Actitives">Learn more</a></p>
+</div>
 
-  <div class="row">
-    <div class="col-sm-3 well">
-      <div class="well">
-        
-        <p><a href="#">My Profile</a></p>
-        <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
-      </div>
-      <div class="well">
-        <p><a href="#">Interests</a></p>
-        <p>
-          <span class="label label-default">News</span>
-          <span class="label label-primary">W3Schools</span>
-          <span class="label label-success">Labels</span>
-          <span class="label label-info">Football</span>
-          <span class="label label-warning">Gaming</span>
-          <span class="label label-danger">Friends</span>
-        </p>
-      </div>
-      <div class="alert alert-success fade in">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-        <p><strong>Ey!</strong></p>
-        People are looking at your profile. Find out who.
-      </div>
-      <p><a href="#">Link</a></p>
-    </div>
-    <div class="col-sm-7">
-    
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="panel panel-default text-left">
+<div class="row">
+<?php foreach($Result as $item)
+{ ?>
+        <div class="col-sm-6">
+          <div class="panel panel-default text-left" >
             <div class="panel-body">
-              <p contenteditable="true">Status: Feeling Blue</p>
-              <button type="button" class="btn btn-default btn-sm">
-                <span class="glyphicon glyphicon-thumbs-up"></span> Like
-              </button>
+
+                <table class="table table-hover">
+                <form action="<?= base_url('Actitives/') ?>" method="post" name="fm_join_acti" id="fm_join_acti">
+                  <tr><th colspan="4" class="success">Actitive No : <?php echo $item->ACT_ID; ?></th></tr>
+                </form>
+                    <tr>
+                        <td><span class="glyphicon glyphicon-user" aria-hidden="true"> Creator</td>
+                        <td><?php echo $item->username; ?></td>
+                    </tr> 
+                    <tr>
+                        <td><span class="glyphicon glyphicon-sunglasses" aria-hidden="true"> Category Type</td>
+                        <td ><?php echo $item->CATE_NAME; ?></td>
+                    </tr>
+                    <tr>
+                        <td><span class="glyphicon glyphicon-calendar" aria-hidden="true"> Date</td>
+                        <td><?php echo $item->ACT_DATE; ?></td>
+                    </tr>
+                    <tr>
+                        <td><span class="glyphicon glyphicon-time" aria-hidden="true"> Start Time</td>
+                        <td ><?php echo $item->START_TIME; ?></td>
+                    </tr>
+                    <tr>
+                        <td><span class="glyphicon glyphicon-time" aria-hidden="true"> End Time</td>
+                        <td><?php echo $item->END_TIME; ?></td>
+                    </tr>
+                    <tr>
+                        <td><span class="glyphicon glyphicon-map-marker" aria-hidden="true"> Location</td>
+                        <td><?php echo $item->LOCATION; ?></td>
+                    </tr>
+                    <tr>
+                        <td><span class="glyphicon glyphicon-user" aria-hidden="true"> No. of Peoples</td>
+                        <td><?php echo $item->NO_PPL; ?> / <?php echo $item->MAX_NO_PPL; ?></td>
+                    </tr>
+                    <tr>
+                        <th colspan="4" class="info"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"> Information</th>
+                    </tr>
+                    <tr>
+                        <td colspan="4" rowspan="5"><?php echo $item->INFO; ?></td>
+                    </tr>
+                </table>
+                    <?php if (isset($_SESSION['username']) && $_SESSION['logged_in'] === true) : ?>
+                        <?php if ( $item->NO_PPL === $item->MAX_NO_PPL ) {?>
+                                <button type="submit" class="btn btn-info" name="join_acti" id="join_acti" disable> Full </button>
+                        <?php } else { ?>
+                                <button type="submit" class="btn btn-info" name="join_acti" id="join_acti" value="<?php echo $item->ACT_ID; ?>"> Join </button>
+                	    <?php } ;?>
+                	 <?php endif ?>
             </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-           <p>John</p>
-           <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-          </div>
-        </div>
-        <div class="col-sm-9">
-          <div class="well">
-            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-           <p>Bo</p>
-           <img src="bandmember.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-          </div>
-        </div>
-        <div class="col-sm-9">
-          <div class="well">
-            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-           <p>Jane</p>
-           <img src="bandmember.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-          </div>
-        </div>
-        <div class="col-sm-9">
-          <div class="well">
-            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-           <p>Anja</p>
-           <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-          </div>
-        </div>
-        <div class="col-sm-9">
-          <div class="well">
-            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-          </div>
-        </div>
-      </div>
-      <ul class="pager">
-        <li class="previous"><a href="#">Previous</a></li>
-        <li class="next"><a href="#">Next</a></li>
-      </ul>
-    </div>
-    <div class="col-sm-2 well">
-      <div class="thumbnail">
-        <p>Upcoming Events:</p>
-        <img src="paris.jpg" alt="Paris" width="400" height="300">
-        <p><strong>Paris</strong></p>
-        <p>Fri. 27 November 2015</p>
-        <button class="btn btn-primary">Info</button>
-      </div>      
-      <div class="well">
-        <p>ADS</p>
-      </div>
-    </div>
-  </div>
+<?php };?>
 </div>
+
+  
+
+
+
+
+

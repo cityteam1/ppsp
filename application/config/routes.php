@@ -58,8 +58,8 @@ $route['profile'] = 'users/profile';
 $route['admin/login'] = 'admin/login';
 $route['admin'] = 'admin/board';
 $route['404_override'] = 'errors/page_missing';
-$route['Actitives'] = 'Actitives/index';
+$route['actitives'] = 'actitives/index';
 $route['translate_uri_dashes'] = FALSE;
 
-# Actitives
+
 

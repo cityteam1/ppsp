@@ -19,16 +19,11 @@
 			<div class="page-header">
 				<h1>Your Profile</h1>
 			</div>
-			<?= form_open() ?>
+			<?= form_open(base_url()."user/profile") ?>
 				<div class="form-group">
 					<label for="username">Username</label>
 					<input type="text" class="form-control" id="username" name="username" placeholder="Enter a username" value="<?php echo $_SESSION['username']?>" Disabled>
 					<!--<p class="help-block" >At least 4 characters, letters or numbers only</p>-->
-				</div>
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
-					<!--<p class="help-block">A valid email address</p>-->
 				</div>
 				<div class="form-group">
 					<label for="password">Password</label>
@@ -42,7 +37,6 @@
 				</div>
 				<div class="form-group">
 					<input type="submit" class="btn btn-info" value="Edit">
-					<input type="submit" class="btn btn-danger" value="Cancel">
 				</div>
 			</form>
 		</div>

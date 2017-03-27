@@ -62,8 +62,26 @@ class User_model extends CI_Model {
 		return $this->$hash;
 		
 	}
+	// public function update_user_password($id, $data, $password) {
+		
+	// 	$this->db->where('id', $id);
+		
+	// 	$id 	  = $this->input->post('id');
+	// 	$username = $this->input->post('username');
+	// 	$email    = $this->input->post('email');
+		
+	// 	$data = array(
+	// 		'password'   => $this->hash_password($password),
+	// 			'USERNAME'=> $username,
+	// 			'EMAIL'=> $email,
+	// 	);
+		
+		
+	// }
+	
 	
 	public function update_user_login($data){
+		
 		$data = array(
 			'updated_at' => date('Y-m-j H:i:s'),
 		);
