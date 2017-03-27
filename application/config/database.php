@@ -64,9 +64,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'danny-ppsp.cz50ssaj4gve.ap-southeast-1.rds.amazonaws.com',
-	'username' => 'dbuser',
-	'password' => 'Exlogin01',
+	'hostname' => '',
+	'username' => '',
+	'password' => '',
 	'database' => 'ppsp',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
